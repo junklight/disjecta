@@ -34,15 +34,6 @@ SynthDef(\CHat, { | amp = 2.0 |
 (
 
 t = TempoClock.new(0.7, 1);
-a = Routine {
-	var dl = rrand(0.0,0.05);
-	var rst = 0.2 - dl;
-		12.do({ arg x;
-		dl.yield;
-		Synth(\CHat);
-		rst.yield;
-		});
-};
 
 c = Routine {
 	var tick = 0;
@@ -88,7 +79,6 @@ c = Routine {
 					var ifn = ilst.choose[1];
 					n.postln;
 					n.do {
-						// var amp = geta.next;
 						ifn.();
 						t.yield;
 					};
